@@ -112,8 +112,8 @@ export class SelecionarncPage implements OnInit {
 			Riesgo      : ''
 		}
 		
-		this.equipos          = '';
-		this.ubicacion        = '';
-		this.newnoconformidad = '';
+		/*this.equipos          = '';
+		this.ubicacion        = '';*/
+		//this.newnoconformidad = '';
 	}
 }
