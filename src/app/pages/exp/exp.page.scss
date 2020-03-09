@@ -1,0 +1,29 @@
+.color {
+    --background : #4973ff;
+    --color      : white;
+}
+
+.login-page {
+    margin  : auto;
+    padding : 2% 0 0;
+    width   : 100%;
+}
+
+.form {
+    //background: white;
+    //box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin     : 0 auto 100px;
+    padding    : 45px;
+    position   : relative;
+    text-align : center;
+    width      : 90%;
+    z-index    : 1;
+}
+
+ion-col {
+    background-color : #4973ff;
+    border           : 1px solid #ccc;
+    color            : white;
+    padding          : 1rem;
+    margin-bottom    : 15px;
+}

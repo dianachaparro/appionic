@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'editar-no-conformidad',
     loadChildren: () => import('./modals/editar-no-conformidad/editar-no-conformidad.module').then( m => m.EditarNoConformidadPageModule)
   },
+  {
+    path: 'exp',
+    loadChildren: () => import('./pages/exp/exp.module').then( m => m.ExpPageModule)
+  },
 ];
 
 @NgModule({
