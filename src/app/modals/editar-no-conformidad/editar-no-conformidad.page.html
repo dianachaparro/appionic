@@ -1,0 +1,23 @@
+<ion-header >
+	<ion-toolbar class="color">
+		<ion-title>Editar no conformidad</ion-title>
+		
+		<ion-buttons slot="end">
+			<ion-button (click)="closeModal()">
+				<ion-icon slot="icon-only" name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+  	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="login-page">
+		<div class="form">
+			<ion-input type="text" name="studentName"    [(ngModel)]="conformidadSeleccionada.EditName"></ion-input>
+			<ion-input type="text" name="studentAge"     [(ngModel)]="conformidadSeleccionada.EditAge"></ion-input>
+			<ion-input type="text" name="studentAddress" [(ngModel)]="conformidadSeleccionada.EditAddress"></ion-input>
+
+			<ion-button expand="block" fill="clear" (click)="UpdateRecord(conformidadSeleccionada)" [disabled]="!conformidadSeleccionada.EditName || !conformidadSeleccionada.EditAge || !conformidadSeleccionada.EditAddress">Editar</ion-button>
+		</div>
+	</div>
+</ion-content>

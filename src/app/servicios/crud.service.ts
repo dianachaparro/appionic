@@ -18,10 +18,10 @@ export class CrudService {
 	}
 	  
 	update_Student(recordID, record){
-		this.firestore.doc('Students/' + recordID).update(record);
+		return this.firestore.doc('Students/' + recordID).update(record);
 	}
 	 
 	delete_Student(record_id) {
-		this.firestore.doc('Students/' + record_id).delete();
+		return this.firestore.doc('Students/' + record_id).delete();
 	}
 }

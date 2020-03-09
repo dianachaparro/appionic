@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'second',
     loadChildren: () => import('./modals/second/second.module').then( m => m.SecondPageModule)
   },
+  {
+    path: 'editar-no-conformidad',
+    loadChildren: () => import('./modals/editar-no-conformidad/editar-no-conformidad.module').then( m => m.EditarNoConformidadPageModule)
+  },
 ];
 
 @NgModule({
