@@ -15,8 +15,10 @@ export class SecondPage implements OnInit {
   	studentAge     : number;
   	studentAddress : string;
 
-	constructor(private modalController : ModalController, 
-	private crudService : CrudService, public alertController: AlertController) { }
+	constructor(
+	private modalController  : ModalController, 
+	private crudService      : CrudService, 
+	public  alertController  : AlertController) { }
 
 	ngOnInit() {
   	}

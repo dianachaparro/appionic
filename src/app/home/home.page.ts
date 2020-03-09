@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService }       from './../servicios/crud.service';
-
-// Modal
-import { ModalController } from '@ionic/angular';
-import { SecondPage }      from '../modals/second/second.page';
+import { ModalController }   from '@ionic/angular';
+import { SecondPage }        from '../modals/second/second.page';
 
 @Component({
 	selector    : 'app-home',
@@ -14,7 +12,9 @@ import { SecondPage }      from '../modals/second/second.page';
 export class HomePage implements OnInit {
 	students : any;
 	  
-	constructor(private crudService: CrudService, private modalController : ModalController) {}
+	constructor(
+	private crudService      : CrudService, 
+	private modalController  : ModalController) {}
 
 	ngOnInit() {
 		this.crudService.read_Students().subscribe(data => {
@@ -28,6 +28,22 @@ export class HomePage implements OnInit {
 			  	};
 			})
 		});
+	}
+
+	RemoveRecord(rowID) {
+		this.crudService.delete_Student(rowID);
+	}
+	 
+	UpdateRecord(recordRow) {
+		let record = {};
+		
+		record['Name']    = recordRow.EditName;
+		record['Age']     = recordRow.EditAge;
+		record['Address'] = recordRow.EditAddress;
+		
+		this.crudService.update_Student(recordRow.id, record);
+
+		recordRow.isEdit = false;
 	}
 
 	async openModal() {
