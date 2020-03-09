@@ -1,0 +1,36 @@
+ion-content {
+  --color : #434e52;
+}
+
+ion-toolbar {
+  color : white;
+}
+
+ion-label {
+  margin: 5px;
+}
+
+ion-item:nth-child(2n+1){
+  --background: #e9e9e9;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.color {
+  --background: #4973ff;
+}
+
+.titulo {
+  font-weight: bold;
+}
+
+span {
+  color: #434e52;
+}
+
+.botones {
+  margin: 5px 0 5px 0;
+}

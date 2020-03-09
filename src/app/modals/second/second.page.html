@@ -1,0 +1,23 @@
+<ion-header >
+	<ion-toolbar class="color">
+		<ion-title>Nuevo registro</ion-title>
+		
+		<ion-buttons slot="end">
+			<ion-button (click)="closeModal()">
+				<ion-icon slot="icon-only" name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+  	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="login-page">
+		<div class="form">
+			<ion-input type="text" placeholder="Ingrese ODS/ODT"   name="studentName"    [(ngModel)]="studentName"></ion-input>
+			<ion-input type="text" placeholder="Ingrese cliente"   name="studentAge"     [(ngModel)]="studentAge"></ion-input>
+			<ion-input type="text" placeholder="Ingrese dirección" name="studentAddress" [(ngModel)]="studentAddress"></ion-input>
+
+			<ion-button expand="block" fill="clear" (click)="loginUsuario()" [disabled]="!studentName || !studentAge || !studentAddress">Crear ODS/ODT</ion-button>
+		</div>
+	</div>
+</ion-content>

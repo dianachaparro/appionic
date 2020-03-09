@@ -1,0 +1,53 @@
+<ion-toolbar class="color">
+	<ion-title>Pasantia IDER</ion-title>
+
+	<ion-buttons slot="secondary">
+		<ion-button routerLink="/login">
+			<ion-icon name="exit"></ion-icon>
+		</ion-button>
+	</ion-buttons>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+	<h1>Lista de no conformidades</h1>
+	
+	<ion-list>
+		<ion-item *ngFor="let item of students">
+			<span *ngIf="!item.isEdit; else elseBlock">
+				<ion-label>
+					<span class="titulo">ODT/ODS #: </span>
+					{{item.Name}}
+				</ion-label>
+				<ion-label>
+					<span class="titulo">Cliente: </span>
+					{{item.Age}}
+				</ion-label>
+				<ion-label>
+					<span class="titulo">Dirección: </span>
+					{{item.Address}}
+				</ion-label>
+
+				<div class="botones">
+					<ion-button   shape="round" size="small" (click)="EditRecord(item)">
+						<ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+					</ion-button>
+					
+					<ion-button   shape="round" size="small" routerLink="/exp" float-right>
+						<ion-icon name="file-tray-full-sharp"></ion-icon>
+					</ion-button>
+					
+					<ion-button   shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+						<ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+					</ion-button>
+				</div>
+			</span>
+		</ion-item>
+	</ion-list>
+	
+	<!-- Botón agregar nuevo -->
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button (click)="openModal()">
+			<ion-icon name="add"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

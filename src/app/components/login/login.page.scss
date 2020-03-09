@@ -1,0 +1,121 @@
+ion-content {
+    --ion-background-color :white;
+    
+    img {
+        margin : 30px 0 30px 0;
+        width  : 120px;
+    }
+}
+
+// Formulario
+.login-page {
+    margin  : auto;
+    padding : 2% 0 0;
+    width   : 100%;
+}
+
+.form {
+    //background: white;
+    //box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin     : 0 auto 100px;
+    padding    : 45px;
+    position   : relative;
+    text-align : center;
+    width      : 90%;
+    z-index    : 1;
+}
+
+.form ion-input {
+    background  : #e9e9e9;
+    box-sizing  : border-box;
+    border      : 0;
+    font-family : "Roboto", sans-serif;
+    font-size   : 14px;
+    margin      : 0 0 15px;
+    outline     : 0;
+    padding     : 15px;
+    outline     : 0;
+    width       : 100%;
+}
+
+.form ion-button {
+    background         : #4973ff;
+    border             : 0;
+    color              : #FFFFFF;
+    cursor             : pointer;
+    font-size          : 14px;
+    font-family        : "Roboto", sans-serif;
+    height             : 40px;
+    outline            : 0;
+    padding            : 15px;
+    text-transform     : uppercase;
+    -webkit-transition : all 0.3 ease;
+    transition         : all 0.3 ease;
+    width              : 100%;
+}
+
+.form ion-button:hover,
+.form ion-button:active,
+.form ion-button:focus {
+    background : #5f84fc;
+}
+
+.form .message {
+    color     : #6b6a6a;
+    font-size : 12px;
+    margin    : 15px 0 0;
+}
+
+.form .message a {
+    color           : #4973ff;
+    text-decoration : none;
+}
+
+.form .register-form {
+    display : none;
+}
+
+// Efecto olas
+.waves {
+    background-color : #4973ff;
+    bottom           : 0;
+    box-shadow       : inset 0 0 50px rgba(0, 0, 0, 0.5);
+    left             : 0;
+    height           : 200px;
+    position         : absolute;
+    right            : 0;
+    transition       : 500ms;
+  }
+  
+.waves::before,
+.waves::after {
+    content   : '';
+    height    : 300vw;
+    left      : 50%;
+    position  : absolute;
+    transform : translate(-50%, -75%);
+    top       : -65vw;
+    width     : 300vw;
+}
+  
+.waves::before {
+    animation     : waves 8s linear infinite;
+    background    : rgb(255, 255, 255, 1);
+    border-radius : 44%;
+}
+  
+.waves::after {
+    animation     : waves 15s linear infinite;
+    background    : rgba(255, 255, 255, 0.5);
+    border-radius : 44%;
+}
+
+@keyframes waves {
+    0% {
+      transform : translate(-50%, -75%) rotate(0deg);
+    }
+    
+    100% {
+      transform : translate(-50%, -75%) rotate(360deg);
+    }
+}
