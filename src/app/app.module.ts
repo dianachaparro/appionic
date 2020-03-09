@@ -14,6 +14,7 @@ import { firebaseConfig }                  from "../environments/environment";
 import { AngularFireModule }               from "@angular/fire";
 import { AngularFireAuthModule }           from "@angular/fire/auth";
 import { AngularFirestoreModule }          from '@angular/fire/firestore';
+import {HttpClientModule}                  from '@angular/common/http';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { AngularFirestoreModule }          from '@angular/fire/firestore';
   
 	imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
 	AngularFireModule.initializeApp(firebaseConfig),
-	AngularFireAuthModule, AngularFirestoreModule],
+	AngularFireAuthModule, AngularFirestoreModule, HttpClientModule],
 	  
 	providers: [
     	StatusBar,

@@ -29,6 +29,10 @@ export class CrudService {
 		return this.firestore.collection('Ubicacion').snapshotChanges();
 	}
 
+	read_NoConformidadExcell() {
+		return this.firestore.collection('NoConformidadExcell').snapshotChanges();
+	}
+
 	read_Newnoconformidades() {
 		return this.firestore.collection('Newnoconformidades').snapshotChanges();
 	}
