@@ -7,7 +7,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export class CrudService {
 
-  constructor(private firestore: AngularFirestore) { }
+  	constructor(private firestore: AngularFirestore) { }
+
+  	create_NewStudent(record) {
+    	return this.firestore.collection('Students').add(record);
+  	}
 
 	read_Students() {
 		return this.firestore.collection('Students').snapshotChanges();

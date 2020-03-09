@@ -17,7 +17,7 @@
 			<ion-input type="text" placeholder="Ingrese cliente"   name="studentAge"     [(ngModel)]="studentAge"></ion-input>
 			<ion-input type="text" placeholder="Ingrese dirección" name="studentAddress" [(ngModel)]="studentAddress"></ion-input>
 
-			<ion-button expand="block" fill="clear" (click)="loginUsuario()" [disabled]="!studentName || !studentAge || !studentAddress">Crear ODS/ODT</ion-button>
+			<ion-button expand="block" fill="clear" (click)="CreateRecord()" [disabled]="!studentName || !studentAge || !studentAddress">Crear ODS/ODT</ion-button>
 		</div>
 	</div>
 </ion-content>
