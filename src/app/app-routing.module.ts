@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'exp',
     loadChildren: () => import('./pages/exp/exp.module').then( m => m.ExpPageModule)
   },
+  {
+    path: 'selecionarnc',
+    loadChildren: () => import('./pages/selecionarnc/selecionarnc.module').then( m => m.SelecionarncPageModule)
+  },
 ];
 
 @NgModule({

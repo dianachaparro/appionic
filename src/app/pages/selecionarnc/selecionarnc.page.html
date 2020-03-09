@@ -1,0 +1,64 @@
+<ion-toolbar class="color">
+	<ion-title>Seleccionar NC</ion-title>
+
+	<ion-buttons slot="secondary">
+		<ion-button routerLink="/exp">
+			<ion-icon name="exit"></ion-icon>
+		</ion-button>
+	</ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+	<div class="login-page">
+		<div class="form">
+			<ion-item>
+				<ion-label>Equipos</ion-label>
+				
+				<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
+					<ion-select-option value="{{item.Equipo}}" *ngFor="let item of equipos">{{item.Equipo}}</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>Ubicación</ion-label>
+				
+				<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One" [(ngModel)]="ubicacionSeleccionada">
+					<ion-select-option value="{{item.Ubicacion}}" *ngFor="let item of ubicacion">{{item.Ubicacion}}</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label >No conformidad</ion-label>
+				
+				<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One" [(ngModel)]="noConformidadSeleccionada" (ionChange)="onSelectChange()">
+					<ion-select-option *ngFor="let item of newnoconformidad" [value]="item">{{item.NoConformidad}}</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<br>
+			<h1>Detalle no conformidad</h1>
+			<ion-item>
+				<ion-label>Criterio:</ion-label>
+				<ion-label>{{noConformidadExcell.Criterio}}</ion-label>
+			</ion-item>
+		  
+			<ion-item>
+				<ion-label>Descripción:</ion-label>
+				<ion-label>{{noConformidadExcell.Descripcion}}</ion-label>
+			</ion-item>
+		  
+			<ion-item>
+				<ion-label>Referencias normativa:</ion-label>
+				<ion-label>{{noConformidadExcell.Referencia}}</ion-label>
+			</ion-item>
+		  
+			<ion-item>
+				<ion-label>Riesgo eléctrico:</ion-label>
+				<ion-label>{{noConformidadExcell.Riesgo}}</ion-label>
+			</ion-item>
+			  
+			<br>
+			<ion-button expand="block" fill="clear" (click)="CreateRecord()">Guardar</ion-button>
+		</div>
+	</div>
+</ion-content>
