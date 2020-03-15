@@ -4,6 +4,9 @@ import { ModalController }         from '@ionic/angular';
 import { SecondPage }              from '../modals/second/second.page';
 import { EditarNoConformidadPage } from '../modals/editar-no-conformidad/editar-no-conformidad.page';
 import { AlertController }         from '@ionic/angular';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 @Component({
 	selector    : 'app-home',
@@ -13,6 +16,7 @@ import { AlertController }         from '@ionic/angular';
 
 export class HomePage implements OnInit {
 	students : any;
+	public isAdmin = false;
 
 	constructor(
 	private crudService      : CrudService, 
@@ -20,6 +24,21 @@ export class HomePage implements OnInit {
 	public  alertController  : AlertController) {}
 
 	ngOnInit() {
+		firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				console.log(user)
+			  firebase
+				.firestore()
+				.doc(`/Usuarios/${user.uid}`)
+				.get()
+				.then(userProfileSnapshot => {
+				  this.isAdmin = userProfileSnapshot.data().IsAdmin;
+
+				  console.log(this.isAdmin);
+				});
+			}
+		  });
+
 		this.crudService.read_Students().subscribe(data => {
 			this.students = data.map(e => {
 				return {
@@ -27,7 +46,7 @@ export class HomePage implements OnInit {
 					isEdit  : false,
 					Name    : e.payload.doc.data()['Name'],
 					Age     : e.payload.doc.data()['Age'],
-					Address : e.payload.doc.data()['Address'],
+					Address : e.payload.doc.data()['Address']
 			  	};
 			})
 		});

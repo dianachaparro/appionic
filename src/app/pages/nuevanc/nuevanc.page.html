@@ -1,39 +1,35 @@
 <ion-toolbar class="color">
-	<ion-title>Pasantía IDER</ion-title>
+	<ion-title>Nueva NC</ion-title>
 
 	<ion-buttons slot="secondary">
-		<ion-button routerLink="/login">
+		<ion-button routerLink="/exp">
 			<ion-icon name="exit"></ion-icon>
 		</ion-button>
 	</ion-buttons>
 </ion-toolbar>
 
 <ion-content [fullscreen]="true">
-	<h1>Lista de ODT/ODS</h1>
+	<h1>Lista de No Conformidades</h1>
 	
 	<ion-list>
-		<ion-item *ngFor="let item of students">
+		<ion-item *ngFor="let item of noconformidad">
 			<span *ngIf="!item.isEdit; else elseBlock">
 				<ion-label>
-					<span class="titulo">ODT/ODS #: </span>
+					<span class="titulo">Equipo: </span>
 					{{item.Name}}
 				</ion-label>
 				<ion-label>
-					<span class="titulo">Cliente: </span>
+					<span class="titulo">No conformidad: </span>
 					{{item.Age}}
 				</ion-label>
 				<ion-label>
-					<span class="titulo">Dirección: </span>
+					<span class="titulo">Area: </span>
 					{{item.Address}}
 				</ion-label>
 
 				<div class="botones">
 					<ion-button   shape="round" size="small" (click)="openModalWithData(item)">
 						<ion-icon size="small" slot="icon-only" name="create"></ion-icon>
-					</ion-button>
-					
-					<ion-button   shape="round" size="small" routerLink="/exp" *ngIf="isAdmin">
-						<ion-icon name="file-tray-full-sharp"></ion-icon>
 					</ion-button>
 					
 					<ion-button   shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">

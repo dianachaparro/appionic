@@ -19,6 +19,8 @@ export class LoginPage implements OnInit {
 	}
 	  
 	loginUsuario() {
+		console.log(this.email);
+		console.log(this.password);
 		this.authService.loginUsuario(this.email, this.password).then(res => {
 			this.router.navigate(['/home']);
 		}).catch(err => this.presentAlert());

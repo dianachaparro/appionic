@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'selecionarnc',
     loadChildren: () => import('./pages/selecionarnc/selecionarnc.module').then( m => m.SelecionarncPageModule)
   },
+  {
+    path: 'nuevanc',
+    loadChildren: () => import('./pages/nuevanc/nuevanc.module').then( m => m.NuevancPageModule)
+  },
 ];
 
 @NgModule({
