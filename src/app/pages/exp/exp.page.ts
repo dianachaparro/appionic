@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService }       from '../../servicios/crud.service';
 import * as XLSX from 'xlsx';
+import { Camera } from '@ionic-native/camera/ngx';
 @Component({
 	selector    : 'app-exp',
 	templateUrl : './exp.page.html',
@@ -9,8 +10,9 @@ import * as XLSX from 'xlsx';
 
 export class ExpPage implements OnInit {
 	users : any[];
+	foto: any;
 
-	constructor(private crudService : CrudService) { }
+	constructor(private crudService : CrudService, private camera : Camera) { }
 
 	ngOnInit() {
 		this.crudService.read_NoConformidadExcell().subscribe(data => {
@@ -25,6 +27,19 @@ export class ExpPage implements OnInit {
 			})
 		});
 	}
+	capturarFoto(){
+		this.camera.getPicture({
+		  quality: 100,
+		  destinationType:this.camera.DestinationType.DATA_URL,
+		  encodingType: this.camera.EncodingType.JPEG,
+		  mediaType: this.camera.MediaType.PICTURE,
+		  allowEdit:false,
+		  saveToPhotoAlbum: true,
+		  sourceType: this.camera.PictureSourceType.CAMERA
+		}).then(ImageData =>{
+		  this.foto="data:image/jpeg;base64," + ImageData;
+		})
+	  }
 
 	exportToExcel() {
 

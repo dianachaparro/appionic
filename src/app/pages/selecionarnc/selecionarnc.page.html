@@ -19,12 +19,12 @@
 				</ion-select>
 			</ion-item>
 
-			<ion-item>
+			<ion-item>				
 				<ion-label>Ubicación</ion-label>
-				
 				<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One" [(ngModel)]="ubicacionSeleccionada">
-					<ion-select-option value="{{item.Ubicacion}}" *ngFor="let item of ubicacion">{{item.Ubicacion}}</ion-select-option>
+				<ion-select-option value="{{item.Ubicacion}}" *ngFor="let item of ubicacion">{{item.Ubicacion}}</ion-select-option>
 				</ion-select>
+			
 			</ion-item>
 
 			<ion-item>
@@ -36,7 +36,7 @@
 			</ion-item>
 
 			<br>
-			<h1>Detalle no conformidad</h1>
+			<!--<h1>Detalle no conformidad</h1>
 			<ion-item>
 				<ion-label>Criterio:</ion-label>
 				<ion-label>{{noConformidadExcell.Criterio}}</ion-label>
@@ -56,6 +56,7 @@
 				<ion-label>Riesgo eléctrico:</ion-label>
 				<ion-label>{{noConformidadExcell.Riesgo}}</ion-label>
 			</ion-item>
+			!-->
 			  
 			<br>
 			<ion-button expand="block" fill="clear" (click)="CreateRecord()">Guardar</ion-button>

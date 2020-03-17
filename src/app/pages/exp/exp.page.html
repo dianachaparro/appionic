@@ -2,6 +2,7 @@
 	<ion-title>Pasantía IDER</ion-title>
 
 	<ion-buttons slot="secondary">
+		
 		<ion-button routerLink="/home">
 			<ion-icon name="exit"></ion-icon>
 		</ion-button>
@@ -9,6 +10,7 @@
 </ion-toolbar>
 
 <ion-content>
+	<ion-title size="large"  class="ion-title">Que desea hacer?</ion-title>
 	<div class="login-page">
 		<div class="form">
 			<ion-grid>
@@ -29,8 +31,14 @@
 					</ion-col>
 
 					<ion-col size="12">
-						<ion-icon name="camera-sharp"></ion-icon>
-						Tomar foto
+						<ion-card>
+      
+							<ion-card-content>
+							  <img [src]="foto" *ngIf="foto">
+							  <ion-button (click)="capturarFoto()" padding>tomar foto</ion-button>
+						   </ion-card-content>
+							
+						  </ion-card>
 					</ion-col>
 				  </ion-row>
 			</ion-grid>

@@ -8,6 +8,7 @@ import { StatusBar }                       from '@ionic-native/status-bar/ngx';
 
 import { AppComponent }                    from './app.component';
 import { AppRoutingModule }                from './app-routing.module';
+import {Camera}                            from '@ionic-native/camera/ngx';
 
 // FireBase
 import { firebaseConfig }                  from "../environments/environment";
@@ -25,7 +26,8 @@ import {HttpClientModule}                  from '@angular/common/http';
 	AngularFireAuthModule, AngularFirestoreModule, HttpClientModule],
 	  
 	providers: [
-    	StatusBar,
+		StatusBar,
+		Camera,
     	SplashScreen,
     	{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   	],

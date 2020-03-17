@@ -12,6 +12,10 @@ export class CrudService {
   	create_NewStudent(record) {
     	return this.firestore.collection('Students').add(record);
 	  }
+
+	create_NewUbicacion(record) {
+    	return this.firestore.collection('Ubicacion').add(record);
+	  }
 	  
 	create_NewSNoConformidadExcell(record) {
     	return this.firestore.collection('NoConformidadExcell').add(record);

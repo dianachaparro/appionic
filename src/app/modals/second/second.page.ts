@@ -10,7 +10,8 @@ import { CrudService }       from './../../servicios/crud.service';
 })
 
 export class SecondPage implements OnInit {
-
+	//studentName, studentAge, studentAddress son los nombre que le coloque 
+	// en HTML en los <ion-input type="text" name="studentName"></ion-input>
 	studentName    : string;
   	studentAge     : number;
   	studentAddress : string;

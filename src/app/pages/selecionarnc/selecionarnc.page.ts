@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService }       from '../../servicios/crud.service';
 import { AlertController }   from '@ionic/angular';
+import { ModalController }   from '@ionic/angular';
 
 @Component({
 	selector    : 'app-selecionarnc',
@@ -8,20 +9,25 @@ import { AlertController }   from '@ionic/angular';
 	styleUrls   : ['./selecionarnc.page.scss'],
 })
 export class SelecionarncPage implements OnInit {
+	ubicacionUb: string;
 	equipos                   : any;
 	ubicacion                 : any;
 	newnoconformidad          : any;
 	noConformidadSeleccionada : any;
 	noConformidadExcell       : any;
-	ubicacionSeleccionada     : any
+	ubicacionSeleccionada     : any;
 	descripcion = "";
   	criterio    = "";
   	referencia  = "";
-  	riesgo      = "";
+	riesgo      = "";
+	
+	
 
 	constructor(
+	private modalController  : ModalController,
 	private crudService      : CrudService,
 	public  alertController  : AlertController) { }
+	
 
 	ngOnInit() {
 		this.limpiarObjeto();
@@ -35,6 +41,7 @@ export class SelecionarncPage implements OnInit {
 			  	};
 			})
 		});
+		
 
 		this.crudService.read_Ubicacion().subscribe(data => {
 			this.ubicacion = data.map(e => {
@@ -51,6 +58,7 @@ export class SelecionarncPage implements OnInit {
 				return {
 					id            : e.payload.doc.id,
 					isEdit        : false,
+					Equipo        : e.payload.doc.data()['Equipo'],
 					NoConformidad : e.payload.doc.data()['No conformidad'],
 					Descripcion   : e.payload.doc.data()['Descripción'],
 					Criterio      : e.payload.doc.data()['Criterio'],
@@ -59,7 +67,22 @@ export class SelecionarncPage implements OnInit {
 			  	};
 			})
 		});
-  	}
+	  }
+	  CreateRecord1() {
+		let record = {};
+		
+		record['Ub']    = this.ubicacionUb;
+		this.crudService.create_NewUbicacion(record).then(resp => {
+			this.ubicacionUb    = "";
+		  	
+			  
+			this.presentAlert("¡Bien hecho!","Guardado correctamente");
+		})
+		.catch(error => {
+			this.presentAlert("¡Error!", "Problema al guardar: " + error);
+		});
+	}
+
 	
 	CreateRecord() {
 		this.crudService.create_NewSNoConformidadExcell(this.noConformidadExcell).then(resp => {
@@ -76,6 +99,8 @@ export class SelecionarncPage implements OnInit {
 		// Solución momentanea
 		if(this.ubicacionSeleccionada == undefined) {
 			this.noConformidadExcell = {
+				//NoConformidad: this.noConformidadSeleccionada.NoConformidad,
+				//Equipo   : this.noConformidadSeleccionada.Equipo,
 				Criterio    : this.noConformidadSeleccionada.Criterio,
 				Descripcion : this.noConformidadSeleccionada.Descripcion,
 				Referencia  : this.noConformidadSeleccionada.Referencia,
@@ -84,6 +109,8 @@ export class SelecionarncPage implements OnInit {
 			}
 		} else {
 			this.noConformidadExcell = {
+				//NoConformidad: this.noConformidadSeleccionada.NoConformidad,
+				//Equipo   : this.noConformidadSeleccionada.Equipo,
 				Criterio    : this.noConformidadSeleccionada.Criterio,
 				Descripcion : this.noConformidadSeleccionada.Descripcion,
 				Referencia  : this.noConformidadSeleccionada.Referencia,
