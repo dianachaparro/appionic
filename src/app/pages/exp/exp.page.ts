@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService }       from '../../servicios/crud.service';
 import * as XLSX from 'xlsx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { AlertController }   from '@ionic/angular';
 @Component({
 	selector    : 'app-exp',
 	templateUrl : './exp.page.html',
@@ -12,7 +13,8 @@ export class ExpPage implements OnInit {
 	users : any[];
 	foto: any;
 
-	constructor(private crudService : CrudService, private camera : Camera) { }
+	constructor(private crudService : CrudService, private camera : Camera,
+		public  alertController  : AlertController) { }
 
 	ngOnInit() {
 		this.crudService.read_NoConformidadExcell().subscribe(data => {
@@ -38,9 +40,12 @@ export class ExpPage implements OnInit {
 		  sourceType: this.camera.PictureSourceType.CAMERA
 		}).then(ImageData =>{
 		  this.foto="data:image/jpeg;base64," + ImageData;
-		})
+		  
+		}
+		)
+		
 	  }
-
+// impresión a excel 
 	exportToExcel() {
 
 		const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.users);
@@ -51,5 +56,25 @@ export class ExpPage implements OnInit {
 	
 		/* save to file */
 		XLSX.writeFile(wb, 'Informe.xlsx');
+		
+
+		
 	  }
-}
+	  CreateRecord() {
+		const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.users);
+	
+		/* generate workbook and add the worksheet */
+		const wb: XLSX.WorkBook = XLSX.utils.book_new();
+		XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+	
+		/* save to file */
+		XLSX.writeFile(wb, 'Informe.xlsx');
+
+		
+		print(informe generado)
+			  
+	  }
+	}
+	  
+
+
