@@ -7,6 +7,7 @@ import { AlertController }         from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { RegistroPage } from '../modals/registro/registro.page';
 
 @Component({
 	selector    : 'app-home',
@@ -61,7 +62,9 @@ export class HomePage implements OnInit {
 			this.presentAlert("¡Error!", "Problema al eliminar: " + error);
 		});
 	}
-	 
+	
+	// Creación de nuevo expediente
+
 	async openModal() {
 		const modal = await this.modalController.create({
 			component : SecondPage
@@ -69,6 +72,16 @@ export class HomePage implements OnInit {
 
 		return await modal.present();
 	}
+
+	// Registro de nuevos usuarios
+
+	/*async openRegistro() {
+		const modal = await this.modalController.create({
+			component : RegistroPage
+		});
+
+		return await modal.present();
+	}*/
 
 	async openModalWithData(record) {
     	record.EditName    = record.Name;

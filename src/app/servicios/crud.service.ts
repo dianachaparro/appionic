@@ -8,8 +8,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class CrudService {
 
   	constructor(private firestore: AngularFirestore) { }
-
-  	create_NewStudent(record) {
+      //create_coleccion en firebase (variable) { return this.firestore.collection('variable_parametro').add(variable); }
+	  create_Ubicacion(record1) {
+    	return this.firestore.collection('Ubicacion').add(record1);
+	  }
+	  create_NewStudent(record) {
     	return this.firestore.collection('Students').add(record);
 	  }
 

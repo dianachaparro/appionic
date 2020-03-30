@@ -19,11 +19,16 @@
 				</ion-select>
 			</ion-item>
 
+			<ion-item><ion-label class="block">Ubicación</ion-label> </ion-item>
 			<ion-item>				
-				<ion-label>Ubicación</ion-label>
+				
 				<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One" [(ngModel)]="ubicacionSeleccionada">
 				<ion-select-option value="{{item.Ubicacion}}" *ngFor="let item of ubicacion">{{item.Ubicacion}}</ion-select-option>
 				</ion-select>
+				<ion-input [(ngModel)]="Busqueda">Escriba ubicación</ion-input>
+			<ion-item>
+			<ion-button (click)="CreateRecord1()">ok</ion-button>
+			</ion-item>
 			
 			</ion-item>
 
@@ -34,7 +39,7 @@
 					<ion-select-option *ngFor="let item of newnoconformidad" [value]="item">{{item.NoConformidad}}</ion-select-option>
 				</ion-select>
 			</ion-item>
-
+			
 			<br>
 			<!--<h1>Detalle no conformidad</h1>
 			<ion-item>

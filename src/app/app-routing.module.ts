@@ -28,6 +28,11 @@ const routes: Routes = [
     path: 'nuevanc',
     loadChildren: () => import('./pages/nuevanc/nuevanc.module').then( m => m.NuevancPageModule)
   },
+ /* {
+    path: 'registro',
+    loadChildren: () => import('./modals/registro/registro.module').then( m => m.RegistroPageModule)
+  },*/
+
 ];
 
 @NgModule({

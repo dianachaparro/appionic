@@ -71,7 +71,7 @@ export class ExpPage implements OnInit {
 		XLSX.writeFile(wb, 'Informe.xlsx');
 
 		
-		print(informe generado)
+		
 			  
 	  }
 	}

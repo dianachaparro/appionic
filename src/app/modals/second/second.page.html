@@ -15,7 +15,11 @@
 		<div class="form">
 			<ion-input type="text" placeholder="Ingrese ODS/ODT"   name="studentName"    [(ngModel)]="studentName"></ion-input>
 			<ion-input type="text" placeholder="Ingrese cliente"   name="studentAge"     [(ngModel)]="studentAge"></ion-input>
-			<ion-input type="text" placeholder="Ingrese dirección" name="studentAddress" [(ngModel)]="studentAddress"></ion-input>
+			<ion-input type="text" placeholder="Ingrese dirección cliente" name="studentAddress" [(ngModel)]="studentAddress"></ion-input>
+			<ion-input type="text" placeholder="Ingrese dirección obra" name="studentAddress1" [(ngModel)]="studentAddress1"></ion-input>
+			<ion-input type="text" placeholder="Ingrese contacto cliente" name="studentContact" [(ngModel)]="studentContact"></ion-input>
+			<ion-input type="text" placeholder="Ingrese Ing Residente/Técnico" name="studentNamer" [(ngModel)]="studentNamer"></ion-input>
+			<ion-input type="text" placeholder="Ingrese contacto Ing Residente/Técnico" name="studentContact1" [(ngModel)]="studentContact1"></ion-input>
 
 			<ion-button expand="block" fill="clear" (click)="CreateRecord()" [disabled]="!studentName || !studentAge || !studentAddress">Crear ODS/ODT</ion-button>
 		</div>

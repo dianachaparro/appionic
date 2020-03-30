@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService }       from '../../servicios/crud.service';
 import { AlertController }   from '@ionic/angular';
 import { ModalController }   from '@ionic/angular';
+//import { ConsoleReporter } from 'jasmine';
 
 @Component({
 	selector    : 'app-selecionarnc',
@@ -20,7 +21,7 @@ export class SelecionarncPage implements OnInit {
   	criterio    = "";
   	referencia  = "";
 	riesgo      = "";
-	
+	Busqueda : string;
 	
 
 	constructor(
@@ -69,6 +70,21 @@ export class SelecionarncPage implements OnInit {
 		});
 	  }
 	  CreateRecord1() {
+		let record1 = {};
+
+		record1['Ub'] = this.Busqueda; //Ub= campo nombrado en Firebase
+
+		//record1['Ubicacion']    = this.ubicacion;
+		this.crudService.create_Ubicacion(record1).then(resp => {
+			this.Busqueda    = "";
+		
+			this.presentAlert("¡Bien hecho!","Guardado correctamente");
+		})
+		.catch(error => {
+			this.presentAlert("¡Error!", "Problema al guardar: " + error);
+		});
+	}
+	  /*CreateRecord1() {
 		let record = {};
 		
 		record['Ub']    = this.ubicacionUb;
@@ -81,7 +97,7 @@ export class SelecionarncPage implements OnInit {
 		.catch(error => {
 			this.presentAlert("¡Error!", "Problema al guardar: " + error);
 		});
-	}
+	}*/
 
 	
 	CreateRecord() {
