@@ -9,9 +9,9 @@
 </ion-toolbar>
 
 <ion-content [fullscreen]="true">
-	<h1>Lista de No Conformidades</h1>
+	 <!-- <h1>Lista de No Conformidades</h1> -->
 	
-	<ion-list>
+     <!-- <ion-list>
 		<ion-item *ngFor="let item of noconformidad">
 			<span *ngIf="!item.isEdit; else elseBlock">
 				<ion-label>
@@ -38,12 +38,29 @@
 				</div>
 			</span>
 		</ion-item>
-	</ion-list>
+	</ion-list> -->
+
 	
 	<!-- Botón agregar nuevo -->
 	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-		<ion-fab-button (click)="openModal()">
+		<ion-fab-button (click)="openModal1()">
 			<ion-icon name="add"></ion-icon>
 		</ion-fab-button>
 	</ion-fab>
+<!-- </ion-content> -->
+<ion-content [fullscreen]="true">
+	 <div class="login-page">
+		<div class="form">
+			<ion-input type="text" placeholder="Ubicación"   name="Busqueda"    [(ngModel)]="Busqueda"></ion-input>
+			<ion-input type="text" placeholder="Equipo"   name="nuevoEquipo"     [(ngModel)]="nuevoEquipo"></ion-input>
+			<!-- <ion-input type="text" placeholder="Descripción"   name="nuevaDescripción"     [(ngModel)]="nuevaDescripción"></ion-input> -->
+			<ion-input type="text" placeholder="Norma" name="RN" [(ngModel)]="RN"></ion-input>
+			<ion-input type="text" placeholder="Criterio" name="nuevoCriterio" [(ngModel)]="nuevoCriterio"></ion-input>
+			<ion-input type="text" placeholder="Riesgo eléctrico" name="nuevoRiesgo" [(ngModel)]="nuevoRiesgo"></ion-input>
+			<ion-input type="text" placeholder="Solución" name="nuevaSolucion" [(ngModel)]="nuevaSolucion"></ion-input>
+			<ion-input type="text" placeholder="Cantidad" name="nuevaCantidad" [(ngModel)]="nuevaCantidad"></ion-input> 
+
+			<ion-button expand="block" fill="clear" (click)="CreateRecord2()" [disabled]="!Busqueda || !nuevoEquipo || !nuevoCriterio">Crear NC</ion-button>
+		</div>
+	</div>
 </ion-content>

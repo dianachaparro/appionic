@@ -51,4 +51,7 @@ export class CrudService {
 	delete_Student(record_id) {
 		return this.firestore.doc('Students/' + record_id).delete();
 	}
+	create_NewSNewnoconformidades(record) {
+    	return this.firestore.collection('Newnoconformidades').add(record);
+	  }
 }
