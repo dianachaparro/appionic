@@ -15,13 +15,13 @@ export class NuevancPage implements OnInit {
 	noConformidadExcell       : any;
 	Busqueda : string;
 	nuevoEquipo : string;
-	// EL ERROR ESTABA AQUI CON DESCRIPCIÓN CON TILDE
-//	nuevaDescripción : string;
+	nuevaDescripcion : string;
 	RN : string;
 	nuevoCriterio : string;
 	nuevoRiesgo : string;
 	nuevaSolucion : string;
 	nuevaCantidad : number;
+	nuevaNC : String;
 
 	constructor(
 		private modalController  : ModalController, 
@@ -52,26 +52,26 @@ export class NuevancPage implements OnInit {
 	CreateRecord2() {
 		let record2 = {};
 		
-		record2['Ub']    = this.Busqueda;
-		record2['Eq']     = this.nuevoEquipo;
-	// ACA TAMBIÉN HABÍA ERROR CON LA TILDE
-//		record2['Descripción'] = this.nuevaDescripción;
+		//record2['Ub']    = this.Busqueda;
+		//record2['Eq']     = this.nuevoEquipo;
+		record2['Descripcion'] = this.nuevaDescripcion;
 		record2['Referencia']    = this.RN;
 		record2['Criterio']     = this.nuevoCriterio;
 		record2['Riesgo'] = this.nuevoRiesgo;
-		record2['Solucion'] = this.nuevaSolucion;
-		record2['Cantidad'] = this.nuevaCantidad;
+		//record2['Solucion'] = this.nuevaSolucion;
+		//record2['Cantidad'] = this.nuevaCantidad;
+		record2['No conformidad'] = this.nuevaNC;
 		
 		this.crudService.create_NewSNewnoconformidades(record2).then(resp => {
-			this.Busqueda    = "";
-			  this.nuevoEquipo     = "";
-			  // Y AQUÍ TAMBIÉN QUE NO SE TE OLVIDE
-//			this.nuevaDescripción = "";
+			//this.Busqueda    = "";
+		  	//this.nuevoEquipo     = "";
+			this.nuevaDescripcion = "";
 			this.RN   = "";
 			this.nuevoCriterio = "";
 			this.nuevoRiesgo = "";
-			this.nuevaSolucion = "";
-			this.nuevaCantidad = undefined;
+			//this.nuevaSolucion = "";
+			//this.nuevaCantidad = undefined;
+			this.nuevaNC = "" ;
 			  
 			this.presentAlert("¡Bien hecho!","No conformidad creada");
 		})
