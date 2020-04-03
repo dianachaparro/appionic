@@ -15,7 +15,8 @@ export class NuevancPage implements OnInit {
 	noConformidadExcell       : any;
 	Busqueda : string;
 	nuevoEquipo : string;
-	nuevaDescripción : string;
+	// EL ERROR ESTABA AQUI CON DESCRIPCIÓN CON TILDE
+//	nuevaDescripción : string;
 	RN : string;
 	nuevoCriterio : string;
 	nuevoRiesgo : string;
@@ -53,7 +54,8 @@ export class NuevancPage implements OnInit {
 		
 		record2['Ub']    = this.Busqueda;
 		record2['Eq']     = this.nuevoEquipo;
-		record2['Descripción'] = this.nuevaDescripción;
+	// ACA TAMBIÉN HABÍA ERROR CON LA TILDE
+//		record2['Descripción'] = this.nuevaDescripción;
 		record2['Referencia']    = this.RN;
 		record2['Criterio']     = this.nuevoCriterio;
 		record2['Riesgo'] = this.nuevoRiesgo;
@@ -62,8 +64,9 @@ export class NuevancPage implements OnInit {
 		
 		this.crudService.create_NewSNewnoconformidades(record2).then(resp => {
 			this.Busqueda    = "";
-		  	this.nuevoEquipo     = "";
-			this.nuevaDescripción = "";
+			  this.nuevoEquipo     = "";
+			  // Y AQUÍ TAMBIÉN QUE NO SE TE OLVIDE
+//			this.nuevaDescripción = "";
 			this.RN   = "";
 			this.nuevoCriterio = "";
 			this.nuevoRiesgo = "";
