@@ -52,8 +52,8 @@
 	 <div class="login-page">
 		<div class="form">
 			<!--<ion-input type="text" placeholder="Ubicación"   name="Busqueda"    [(ngModel)]="Busqueda"></ion-input>
-			<ion-input type="text" placeholder="Equipo"   name="nuevoEquipo"     [(ngModel)]="nuevoEquipo"></ion-input>-->
-			<ion-input type="text" placeholder="Descripcion"   name="nuevaDescripcion"     [(ngModel)]="nuevaDescripcion"></ion-input> 
+			<ion-input type="text" placeholder="Equipo"   name="nuevoEquipo"     [(ngModel)]="nuevoEquipo"></ion-input>
+			<ion-input type="text" placeholder="Descripcion"   name="nuevaDescripcion"     [(ngModel)]="nuevaDescripcion"></ion-input> -->
 			<ion-input type="text" placeholder="Norma" name="RN" [(ngModel)]="RN"></ion-input>
 			<ion-input type="text" placeholder="Criterio" name="nuevoCriterio" [(ngModel)]="nuevoCriterio"></ion-input>
 			<ion-input type="text" placeholder="Riesgo eléctrico" name="nuevoRiesgo" [(ngModel)]="nuevoRiesgo"></ion-input>
@@ -61,7 +61,7 @@
 			<ion-input type="text" placeholder="Cantidad" name="nuevaCantidad" [(ngModel)]="nuevaCantidad"></ion-input> -->
 			<ion-input type="text" placeholder="No conformidad" name="nuevaNC" [(ngModel)]="nuevaNC"></ion-input> 
 
-			<ion-button expand="block" fill="clear" (click)="CreateRecord2()" [disabled]="!nuevaDescripcion || !nuevoCriterio || !nuevaNC">Crear NC</ion-button>
+			<ion-button expand="block" fill="clear" (click)="CreateRecord2()" [disabled]="!nuevoCriterio || !nuevoRiesgo || !nuevaNC">Crear NC</ion-button>
 		</div>
 	</div>
 </ion-content>

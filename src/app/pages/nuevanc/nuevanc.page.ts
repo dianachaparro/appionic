@@ -15,7 +15,7 @@ export class NuevancPage implements OnInit {
 	noConformidadExcell       : any;
 	Busqueda : string;
 	nuevoEquipo : string;
-	nuevaDescripcion : string;
+	//nuevaDescripcion : string;
 	RN : string;
 	nuevoCriterio : string;
 	nuevoRiesgo : string;
@@ -54,7 +54,7 @@ export class NuevancPage implements OnInit {
 		
 		//record2['Ub']    = this.Busqueda;
 		//record2['Eq']     = this.nuevoEquipo;
-		record2['Descripcion'] = this.nuevaDescripcion;
+		//record2['Descripcion'] = this.nuevaDescripcion;
 		record2['Referencia']    = this.RN;
 		record2['Criterio']     = this.nuevoCriterio;
 		record2['Riesgo'] = this.nuevoRiesgo;
@@ -65,7 +65,7 @@ export class NuevancPage implements OnInit {
 		this.crudService.create_NewSNewnoconformidades(record2).then(resp => {
 			//this.Busqueda    = "";
 		  	//this.nuevoEquipo     = "";
-			this.nuevaDescripcion = "";
+			//this.nuevaDescripcion = "";
 			this.RN   = "";
 			this.nuevoCriterio = "";
 			this.nuevoRiesgo = "";
