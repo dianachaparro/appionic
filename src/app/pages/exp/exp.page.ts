@@ -3,6 +3,8 @@ import { CrudService }       from '../../servicios/crud.service';
 import * as XLSX from 'xlsx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { AlertController }   from '@ionic/angular';
+import { File } from '@ionic-native/file/ngx';
+
 @Component({
 	selector    : 'app-exp',
 	templateUrl : './exp.page.html',

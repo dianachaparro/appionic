@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./modals/editar-no-conformidad/editar-no-conformidad.module').then( m => m.EditarNoConformidadPageModule)
   },
   {
-    path: 'exp',
+    path: 'exp/:id',
     loadChildren: () => import('./pages/exp/exp.module').then( m => m.ExpPageModule)
   },
   {
